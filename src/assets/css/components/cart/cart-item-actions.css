@@ -1,0 +1,12 @@
+.action-btn {
+  font-weight: bold;
+}
+
+.action-btn:hover {
+  cursor: pointer;
+}
+
+.quantity-num {
+  padding: 0 0.75rem;
+  text-align: center;
+}

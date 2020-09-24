@@ -1,8 +1,9 @@
 import React from "react"
-import useCartStore from "../../lib/store"
+import CartItemActions from "./cart-item-actions"
 
-const ProductItem = product => {
-  const { addItemToCart } = useCartStore()
+const CartItem = product => {
+  const totalPrice = (product.price * product.quantity).toFixed(2)
+
   return (
     <div
       className="product cell small-12 grid-x grid-margin-x"
@@ -13,15 +14,12 @@ const ProductItem = product => {
       </div>
       <div className="product-title cell small-4">{product.title}</div>
       <div className="product-sku cell small-2">{product.sku}</div>
-      <div className="product-price cell small-2">${product.price}</div>
-      <div className="product-add-to-cart cell small-2">
-        <button id="add-to-cart" onClick={() => addItemToCart(product)}>
-          {" "}
-          Add to Cart
-        </button>
+      <div className="product-price cell small-2">${totalPrice}</div>
+      <div className="product-actions cell small-2">
+        <CartItemActions {...product} />
       </div>
     </div>
   )
 }
 
-export default ProductItem
+export default CartItem

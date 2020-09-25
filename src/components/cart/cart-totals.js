@@ -9,7 +9,7 @@ const CartTotals = ({ cart, itemsInCart }) => {
   )
 
   const tax = subtotal * 0.1
-  const shippingCost = 50 + 50 * 0.2 - 5 * itemsInCart()
+  const shippingCost = 50 + subtotal * 0.2 - 5 * itemsInCart()
 
   const totalCost = subtotal + tax + shippingCost
 
@@ -22,7 +22,7 @@ const CartTotals = ({ cart, itemsInCart }) => {
         <strong>Tax:</strong> ${tax.toFixed(2)}
       </div>
       <div className="total-value cell">
-        <strong>Shipping:</strong> ${shippingCost}
+        <strong>Shipping:</strong> ${shippingCost.toFixed(2)}
       </div>
       <div className="total-value cell">
         <strong>Total Cost:</strong> ${totalCost.toFixed(2)}
